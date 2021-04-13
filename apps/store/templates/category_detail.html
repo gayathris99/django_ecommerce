@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block title %}
+{{ category.title }} |
+{% endblock %}
 
 {% block content %}
 <h1 class ="title">{{ category.title }}</h1>
@@ -16,7 +19,7 @@
             </div>
         </div>
         <footer class = "card-footer">
-            <a href = "{% url 'product_detail' category.slug product.slug %}" class = "card-footer-item">View</a>
+            <a href = "{% url 'product_detail' category.slug  product.slug %}" class = "card-footer-item">View</a>
         </footer>
     </div>
     {% endfor %}

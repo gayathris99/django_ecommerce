@@ -4,7 +4,7 @@
         <meta charset = "utf-8">
         <meta name = "viewport" content = "width=device=width, intial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-        <title>Soul Gadgets</title>
+        <title>{% block title %}{% endblock %}Soul Gadgets</title>
     </head>
     <body>
         <nav class ="navbar is-dark">
@@ -22,7 +22,10 @@
                         {% for category in menu_categories %}
                             <a class = "navbar-item" href = "{% url 'category_detail' category.slug %}">{{ category.title }}</a>
                         {% endfor %}
-                        <a class = "navbar-item" href = "{% url 'contactpage' %}">Contact</a>
+                        <div class = "navbar-item">
+                            <a href = "{% url 'cart' %}" class = "button is-primary">Cart</a> 
+                        </div>
+                        
                     </div>
                 </div>
         </nav>
@@ -32,5 +35,19 @@
             {% endblock %}
 
         </section>
+        <footer class = "footer">
+            <div class = "columns">
+                <div class = "column is-4">
+                    <h2 class = "subtitle">Soul Gadgets</h2>
+                </div>
+                <div class = "column is-8">
+                    <a href = "{% url 'contactpage' %}">Contact</a>
+                    <a href = "{% url 'aboutpage' %}">About</a>
+                </div>
+            </div>
+        </footer>
+
+
+
     </body>
 </html>

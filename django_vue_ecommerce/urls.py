@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.core.views import frontpage , contactpage
+from apps.cart.views import *
+from apps.core.views import *
 from apps.store.views import category_detail , product_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('about/' , aboutpage, name = "aboutpage"),
     path('' , frontpage, name = "frontpage"),
     path('contact/' , contactpage, name = "contactpage"),
+    path('cart/' , cart , name = 'cart'),
     path('<slug:category_slug>/<slug:slug>/', product_detail , name = 'product_detail'),
     path('<slug:slug>/' , category_detail , name = "category_detail"),
     
